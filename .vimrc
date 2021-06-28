@@ -25,6 +25,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vim-python/python-syntax'
 Plug 'davidhalter/jedi-vim'
+Plug 'lervag/vimtex'
 
 call plug#end()
 
