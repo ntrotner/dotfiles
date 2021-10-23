@@ -11,5 +11,6 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(git node deno docker docker-compose npm history-substring-search zsh-autosuggestions zsh-syntax-highlighting copyfile)
 
 alias ls="ls -lh"
+alias vim="nvim"
 
 source $ZSH/oh-my-zsh.sh
