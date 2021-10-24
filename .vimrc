@@ -10,11 +10,15 @@ set tabpagemax=2
 set switchbuf=usetab
 filetype plugin on
 
-autocmd vimenter * NERDTree
 set updatetime=500 " Update Time for gitgutter
 
 
 call plug#begin()
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" :CocInstall coc-json
+" :CocInstall coc-tsserver
+" :CocInstall coc-eslint
 
 Plug 'preservim/nerdtree'
 Plug 'airblade/vim-gitgutter'
@@ -29,15 +33,32 @@ Plug 'lervag/vimtex'
 
 call plug#end()
 
+let g:coc_global_extensions = ['coc-tsserver']
+
 " THEME
 let g:airline_theme = "palenight"
 set background=dark
 colorscheme palenight
 "
 
+" change dir in nerdtree when using cd
+augroup DIRCHANGE
+    au!
+    autocmd DirChanged global :NERDTreeCWD
+augroup END
+
 " CUSTOM BINDINGS
 map <C-d> :NERDTreeToggle<CR>
 
+" coc-tsserver
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 nnoremap e w
 nnoremap w b
