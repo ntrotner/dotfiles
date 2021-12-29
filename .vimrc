@@ -1,8 +1,8 @@
 syntax on
 set number
-set tabstop=3
+set tabstop=2
 set shiftwidth=2
-set guifont:Courier:h16
+set guifont=SourceCodePro:h16
 set smartindent
 set autoindent
 set foldenable
@@ -12,33 +12,36 @@ filetype plugin on
 
 set updatetime=500 " Update Time for gitgutter
 
+let g:pymode_rope = 0
+let g:jedi#completions_enabled = 0
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#disable_auto_complete = 1
 
 call plug#begin()
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" :CocInstall coc-json
-" :CocInstall coc-tsserver
-" :CocInstall coc-eslint
-
 Plug 'preservim/nerdtree'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-airline/vim-airline'
-Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'rhysd/vim-clang-format'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'vim-python/python-syntax'
-Plug 'davidhalter/jedi-vim'
-Plug 'lervag/vimtex'
+Plug 'patstockwell/vim-monokai-tasty'
 
+" formatter
+Plug 'Chiel92/vim-autoformat'
+
+" git
+Plug 'airblade/vim-gitgutter'
+
+" python
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
+Plug 'vim-python/python-syntax'
+
+" go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
-let g:coc_global_extensions = ['coc-tsserver']
 
 " THEME
-let g:airline_theme = "palenight"
 set background=dark
-colorscheme palenight
+colorscheme vim-monokai-tasty
 "
 
 " change dir in nerdtree when using cd
@@ -50,18 +53,13 @@ augroup END
 " CUSTOM BINDINGS
 map <C-d> :NERDTreeToggle<CR>
 
-" coc-tsserver
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-" Remap keys for applying codeAction to the current line.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
+" autocomplete deoplete
+inoremap <expr> <C-space>  deoplete#manual_complete()
 
 nnoremap e w
 nnoremap w b
+map <C-f> :Autoformat<CR>
+
 map q <Nop>
 map b <Nop>
 map a <Nop>
@@ -69,6 +67,7 @@ map J <Nop>
 map U <Nop>
 map s <Nop>
 map S <Nop>
+map <C-l> :vertical resize +5<CR>
 map qb :bp<bar>sp<bar>bn<bar>bd<CR>
 
 :map <C-m> :bnext<CR>
