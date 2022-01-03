@@ -1,4 +1,5 @@
 syntax on
+:set spell spelllang=de
 set number
 set tabstop=2
 set shiftwidth=2
@@ -15,12 +16,32 @@ set updatetime=500 " Update Time for gitgutter
 let g:pymode_rope = 0
 let g:jedi#completions_enabled = 0
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#disable_auto_complete = 1
+let g:deoplete#disable_auto_complete = 0
+
+" LanguageTool
+let g:languagetool_jar='$HOME/.languagetool/languagetool-commandline.jar'
+
+" Go syntax highlighting
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+
+" Auto formatting and importing
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
+let g:go_doc_popup_window = 1
+
+" tex autocomplete
+let g:vimtex_complete_enabled = 1
 
 call plug#begin()
 
 Plug 'preservim/nerdtree'
 Plug 'patstockwell/vim-monokai-tasty'
+
 
 " formatter
 Plug 'Chiel92/vim-autoformat'
@@ -36,6 +57,11 @@ Plug 'vim-python/python-syntax'
 
 " go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" tex
+Plug 'lervag/vimtex'
+Plug 'dpelle/vim-LanguageTool'
+
 call plug#end()
 
 
@@ -46,8 +72,8 @@ colorscheme vim-monokai-tasty
 
 " change dir in nerdtree when using cd
 augroup DIRCHANGE
-    au!
-    autocmd DirChanged global :NERDTreeCWD
+	au!
+	autocmd DirChanged global :NERDTreeCWD
 augroup END
 
 " CUSTOM BINDINGS
@@ -55,6 +81,7 @@ map <C-d> :NERDTreeToggle<CR>
 
 " autocomplete deoplete
 inoremap <expr> <C-space>  deoplete#manual_complete()
+
 
 nnoremap e w
 nnoremap w b
@@ -72,4 +99,6 @@ map qb :bp<bar>sp<bar>bn<bar>bd<CR>
 
 :map <C-m> :bnext<CR>
 :map <C-n> :bprevious<CR>
+
+au filetype go inoremap <buffer> <C-space> <C-x><C-o>
 "
