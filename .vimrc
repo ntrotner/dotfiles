@@ -5,11 +5,12 @@ set number
 set tabstop=2
 set shiftwidth=2
 set guifont=SourceCodePro:h16
+set autowrite
 set smartindent
 set autoindent
 set foldenable
-set tabpagemax=2
-set switchbuf=usetab
+:set foldmethod=syntax
+:set switchbuf=useopen
 filetype plugin on
 
 set updatetime=1000 " Update Time for gitgutter
@@ -45,9 +46,31 @@ Plug 'vim-python/python-syntax'
 
 " go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+
+" latex
+Plug 'lervag/vimtex'
+
+" rainbow colored curly brackes
+Plug 'frazrepo/vim-rainbow'
+let g:rainbow_active = 1
+
+" languagetool
+Plug 'dpelle/vim-LanguageTool'
+:let g:languagetool_jar='$HOME/.languagetool/languagetool-commandline.jar'
 
 call plug#end()
 
+" vim
+filetype plugin indent on
+syntax enable
+
+" languagetool
+set nocompatible
+filetype plugin on
 
 " THEME
 set background=dark
@@ -79,6 +102,4 @@ map qb :bp<bar>sp<bar>bn<bar>bd<CR>
 
 :map <C-m> :bnext<CR>
 :map <C-n> :bprevious<CR>
-
-au filetype go inoremap <buffer> <C-space> <C-x><C-o>
 "
