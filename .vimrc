@@ -9,13 +9,14 @@ set autowrite
 set smartindent
 set autoindent
 set foldenable
-:set foldmethod=syntax
+:set foldmethod=manual
 :set switchbuf=useopen
 filetype plugin on
 
 set updatetime=1000 " Update Time for gitgutter
 
 let g:pymode_rope = 0
+let NERDTreeShowHidden=1
 
 " Go syntax highlighting
 let g:go_highlight_fields = 1
@@ -50,6 +51,11 @@ let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
+
+" plantuml
+Plug 'weirongxu/plantuml-previewer.vim'
+Plug 'tyru/open-browser.vim'
+Plug 'aklt/plantuml-syntax'
 
 " latex
 Plug 'lervag/vimtex'
@@ -103,3 +109,4 @@ map qb :bp<bar>sp<bar>bn<bar>bd<CR>
 :map <C-m> :bnext<CR>
 :map <C-n> :bprevious<CR>
 "
+
