@@ -35,6 +35,7 @@ call plug#begin()
 
 Plug 'preservim/nerdtree'
 Plug 'patstockwell/vim-monokai-tasty'
+Plug 'vim-airline/vim-airline'
 
 " formatter
 Plug 'Chiel92/vim-autoformat'
@@ -51,11 +52,14 @@ let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
+let g:go_auto_type_info = 1
+au filetype go inoremap <buffer> . .<C-x><C-o>
+
 
 " plantuml
-Plug 'weirongxu/plantuml-previewer.vim'
-Plug 'tyru/open-browser.vim'
 Plug 'aklt/plantuml-syntax'
+Plug 'skanehira/preview-uml.vim'
+let g:preview_uml_url='http://localhost:8080'
 
 " latex
 Plug 'lervag/vimtex'
@@ -81,6 +85,7 @@ filetype plugin on
 " THEME
 set background=dark
 colorscheme vim-monokai-tasty
+let g:airline_powerline_fonts = 1
 "
 
 " change dir in nerdtree when using cd
@@ -109,4 +114,3 @@ map qb :bp<bar>sp<bar>bn<bar>bd<CR>
 :map <C-m> :bnext<CR>
 :map <C-n> :bprevious<CR>
 "
-
