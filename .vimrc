@@ -97,7 +97,6 @@ augroup END
 " CUSTOM BINDINGS
 map <C-d> :NERDTreeToggle<CR>
 
-nnoremap e w
 nnoremap w b
 map <C-f> :Autoformat<CR>
 
