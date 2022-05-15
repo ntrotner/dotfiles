@@ -55,12 +55,6 @@ let g:go_highlight_function_calls = 1
 let g:go_auto_type_info = 1
 au filetype go inoremap <buffer> . .<C-x><C-o>
 
-
-" plantuml
-Plug 'aklt/plantuml-syntax'
-Plug 'skanehira/preview-uml.vim'
-let g:preview_uml_url='http://localhost:8080'
-
 " latex
 Plug 'lervag/vimtex'
 
