@@ -33,9 +33,10 @@ let g:go_doc_popup_window = 1
 
 call plug#begin()
 
+" theme
+Plug 'NLKNguyen/papercolor-theme'
+
 Plug 'preservim/nerdtree'
-Plug 'patstockwell/vim-monokai-tasty'
-Plug 'vim-airline/vim-airline'
 
 " formatter
 Plug 'Chiel92/vim-autoformat'
@@ -45,6 +46,18 @@ Plug 'airblade/vim-gitgutter'
 
 " python
 Plug 'vim-python/python-syntax'
+
+" javascript
+Plug 'pangloss/vim-javascript'
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+
+" typescript
+Plug 'leafgarland/typescript-vim'
+let g:typescript_indent_disable = 1
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
 
 " go
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -66,6 +79,9 @@ let g:rainbow_active = 1
 Plug 'dpelle/vim-LanguageTool'
 :let g:languagetool_jar='$HOME/.languagetool/languagetool-commandline.jar'
 
+
+"theme
+
 call plug#end()
 
 " vim
@@ -77,8 +93,8 @@ set nocompatible
 filetype plugin on
 
 " THEME
-set background=dark
-colorscheme vim-monokai-tasty
+set background=light
+colorscheme PaperColor
 let g:airline_powerline_fonts = 1
 "
 
