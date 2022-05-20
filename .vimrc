@@ -32,6 +32,8 @@ let g:go_auto_type_info = 1
 let g:go_doc_popup_window = 1
 
 call plug#begin()
+" youcompleteme
+Plug 'ycm-core/YouCompleteMe'
 
 " theme
 Plug 'NLKNguyen/papercolor-theme'
@@ -46,6 +48,7 @@ Plug 'airblade/vim-gitgutter'
 
 " python
 Plug 'vim-python/python-syntax'
+let python_highlight_all = 1
 
 " javascript
 Plug 'pangloss/vim-javascript'
@@ -66,7 +69,6 @@ let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_auto_type_info = 1
-au filetype go inoremap <buffer> . .<C-x><C-o>
 
 " latex
 Plug 'lervag/vimtex'
