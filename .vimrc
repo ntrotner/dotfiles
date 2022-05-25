@@ -72,6 +72,14 @@ let g:go_auto_type_info = 1
 
 " latex
 Plug 'lervag/vimtex'
+let g:vimtex_compiler_method = 'latexmk'    
+let g:vimtex_compiler_latexmk = {    
+       \ 'executable' : 'latexmk',    
+       \ 'options' : [    
+       \   '-pdf',    
+       \   '-shell-escape',    
+       \ ],    
+       \}
 
 " rainbow colored curly brackes
 Plug 'frazrepo/vim-rainbow'
